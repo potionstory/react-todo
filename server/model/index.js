@@ -1,15 +1,13 @@
 const mongoose = require('mongoose');
 const { Schema } = mongoose;
 
-const MemberSchema = new Schema({
-  name: { type: String, require: true },
-  nickname: { type: String, require: true },
-  mobile: { type: String, require: true },
-  deposit: { type: Boolean, default: false },
-  depositDate: {type: Date, default: Date.now }
-}, { collection: 'member' });
+const TodoSchema = new Schema({
+  item: { type: String, require: true },
+  isComplete: { type: Boolean, default: false },
+  createdAt: {type: Date, default: Date.now }
+}, { collection: 'todo' });
 
-const Member = mongoose.model('Member', MemberSchema);
+const Todo = mongoose.model('Todo', TodoSchema);
 
-module.exports = { Member };
+module.exports = { Todo };
 
